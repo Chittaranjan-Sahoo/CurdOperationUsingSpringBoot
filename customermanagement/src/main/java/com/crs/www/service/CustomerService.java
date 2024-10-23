@@ -22,7 +22,7 @@ public class CustomerService {
 		return c;
 		
 	}
-	@CacheEvict(value="customers",allEntries=true)
+
 	public void deleteById(int id)
 	{
 		custRepo.deleteById(id);
@@ -33,12 +33,12 @@ public class CustomerService {
 		
 		return custRepo.findAll();
 	}
-	@Cacheable(value="customers",key="#id")
+
 	public Customer getById(int id)
 	{
 		return custRepo.findById(id).get();
 	}
-	@CachePut(value="customers",key="#cust")
+	
 	public String updateCustomer(Customer cust)
 	{
 		Customer customer=custRepo.findById(cust.getCustId()).get();
